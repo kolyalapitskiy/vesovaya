@@ -1,0 +1,15 @@
+{
+  "name": "vesovaya-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "python3 -m http.server 8080 -d public",
+    "start": "node src/server.mjs",
+    "dev": "node src/server.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.12.0"
+  }
+}
