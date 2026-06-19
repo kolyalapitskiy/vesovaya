@@ -133,7 +133,6 @@ const renderLayout = (page) => {
 
 const leadForm = `<form class="lead-form" data-lead-form>
   <input type="hidden" name="page_url" value="">
-  <label class="hp">Сайт <input name="website" tabindex="-1" autocomplete="off"></label>
   <div class="form-grid">
     <label>Имя <input name="name" required placeholder="Иван"></label>
     <label>Телефон <input name="phone" required type="tel" placeholder="+7 (___) ___ __ __"></label>
@@ -432,7 +431,6 @@ section { padding: 60px 0; }
 .lead-form label { font-size: 12px; font-weight: 700; text-transform: uppercase; display: flex; flex-direction: column; gap: 8px; color: var(--g5); }
 .lead-form input, .lead-form select, .lead-form textarea { padding: 12px; border: 1px solid var(--g3); border-radius: 4px; font-family: inherit; font-size: 15px; width: 100%; }
 .lead-form input:focus { border-color: var(--b); outline: 0; }
-.hp { display: none; }
 
 /* CTA Section Fix */
 .cta-section { background: var(--b); color: var(--w); margin: 40px 0; border-radius: 16px; overflow: hidden; }

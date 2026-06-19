@@ -104,8 +104,6 @@ const createLead = async (req, res) => {
     return sendJson(res, 400, { ok: false, error: 'Некорректные данные формы.' });
   }
 
-  if (data.website) return sendJson(res, 200, { ok: true });
-
   const name = String(data.name ?? '').trim();
   const phone = String(data.phone ?? '').trim();
   const email = String(data.email ?? '').trim();
