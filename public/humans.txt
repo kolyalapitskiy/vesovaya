@@ -1,0 +1,10 @@
+/* TEAM */
+Chef: Завод Весовой Техники
+Contact: sales@vesovaya.example
+From: Петропавловск, Казахстан
+
+/* SITE */
+Last update: 23.06.2026
+Standards: HTML5, CSS3
+Components: Node.js http, Vanilla JS
+Software: Custom Static Site Generator

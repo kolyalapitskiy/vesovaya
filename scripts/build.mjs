@@ -56,10 +56,99 @@ const breadcrumbJson = (items) => ({
   }))
 });
 
+const organizationJson = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': site.name,
+  'url': site.domain,
+  'logo': `${site.domain}/assets/logo.svg`,
+  'contactPoint': {
+    '@type': 'ContactPoint',
+    'telephone': site.phone,
+    'contactType': 'sales',
+    'email': site.email
+  },
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': site.address,
+    'addressLocality': site.city,
+    'addressCountry': site.country
+  }
+});
+
+const websiteJson = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  'name': site.name,
+  'url': site.domain,
+  'potentialAction': {
+    '@type': 'SearchAction',
+    'target': `${site.domain}/katalog/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
+});
+
+const productJson = (cat, cap) => {
+  const model = `${cat.name} ${cap} ${cat.unit}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    'name': model,
+    'image': `${site.domain}/assets/model-${cat.slug}-${cap}.svg`,
+    'description': `Промышленная весоизмерительная система повышенной надежности. НПВ ${cap} ${cat.unit}.`,
+    'offers': {
+      '@type': 'AggregateOffer',
+      'priceCurrency': 'KZT',
+      'lowPrice': '500000',
+      'offerCount': '1',
+      'priceSpecification': {
+        '@type': 'PriceSpecification',
+        'valueAddedTaxIncluded': true
+      }
+    }
+  };
+};
+
+const serviceJson = (slug, name) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  'serviceType': name,
+  'provider': {
+    '@type': 'Organization',
+    'name': site.name,
+    'url': site.domain
+  },
+  'description': `Услуга ${name.toLowerCase()} от официального завода весового оборудования в Казахстане.`
+});
+
+const faqJson = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': [
+    {
+      '@type': 'Question',
+      'name': 'Каковы сроки производства промышленных весов?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Обычно срок производства автомобильных и вагонных весов составляет от 10 до 20 рабочих дней в зависимости от загруженности завода.'
+      }
+    },
+    {
+      '@type': 'Question',
+      'name': 'Предоставляется ли гарантия на весы?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Да, мы предоставляем официальную гарантию от завода-производителя до 5 лет на все металлоконструкции и электронику.'
+      }
+    }
+  ]
+});
+
 const renderLayout = (page) => {
   const canonical = `${site.domain}${page.url === '/' ? '/' : page.url}`;
   const crumbs = page.breadcrumbs ?? [{ name: 'Главная', url: '/' }, { name: page.h1, url: page.url }];
   const jsonLd = [breadcrumbJson(crumbs), ...(page.schema ?? [])];
+  const imageUrl = page.image ? `${site.domain}${page.image}` : `${site.domain}/assets/hero.svg`;
   return `<!doctype html>
 <html lang="ru">
 <head>
@@ -69,6 +158,15 @@ const renderLayout = (page) => {
   <meta name="description" content="${esc(page.description)}">
   <link rel="canonical" href="${esc(canonical)}">
   <link rel="stylesheet" href="/assets/styles.css">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="${esc(page.title)}">
+  <meta property="og:description" content="${esc(page.description)}">
+  <meta property="og:type" content="${page.url === '/' ? 'website' : 'article'}">
+  <meta property="og:url" content="${esc(canonical)}">
+  <meta property="og:image" content="${esc(imageUrl)}">
+  <meta property="og:site_name" content="${esc(site.name)}">
+
   <script src="/assets/lead-form.js" defer></script>
   ${jsonLd.map((data) => `<script type="application/ld+json">${JSON.stringify(data)}</script>`).join('\n  ')}
 </head>
@@ -262,6 +360,7 @@ addPage({
   title: 'Автомобильные и вагонные весы | Завод весовой техники',
   h1: 'Завод Весовой Техники',
   description: 'Производство, монтаж и сервис промышленных весов в Казахстане. Высокая точность, гарантия до 5 лет.',
+  schema: [organizationJson(), websiteJson(), faqJson()],
   body: `<section class="hero-section">
     <div class="container">
       <p class="eyebrow">Завод весоизмерительного оборудования</p>
@@ -291,6 +390,10 @@ addPage({
   title: 'Каталог весов | Производство промышленных весов',
   h1: 'Каталог',
   description: 'Все типы промышленных весов от производителя: автомобильные, вагонные, платформенные.',
+  breadcrumbs: [
+    { name: 'Главная', url: '/' },
+    { name: 'Каталог', url: '/katalog/' }
+  ],
   body: `<section class="container page-header"><h1>Каталог весов</h1></section>
   <section class="container grid col-3">
     ${categories.map(cat => `<a href="/katalog/${cat.slug}/" class="card"><h3>${cat.name}</h3><p>Производство и сервис.</p></a>`).join('')}
@@ -302,6 +405,10 @@ addPage({
   title: 'Услуги по весовому оборудованию | Завод весов',
   h1: 'Услуги',
   description: 'Монтаж, ремонт, поверка и модернизация всех видов промышленных весов.',
+  breadcrumbs: [
+    { name: 'Главная', url: '/' },
+    { name: 'Услуги', url: '/uslugi/' }
+  ],
   body: `<section class="container page-header"><h1>Наши услуги</h1></section>
   <section class="container grid col-2">
     ${services.map(([slug, name]) => `<a href="/uslugi/${slug}/" class="card"><h3>${name}</h3><p>Экспертный сервис.</p></a>`).join('')}
@@ -313,6 +420,10 @@ addPage({
   title: 'Весы в городах Казахстана | География работы',
   h1: 'География',
   description: 'Поставляем и обслуживаем весы в Петропавловске, Астане, Алматы и других регионах.',
+  breadcrumbs: [
+    { name: 'Главная', url: '/' },
+    { name: 'География', url: '/geo/' }
+  ],
   body: `<section class="container page-header"><h1>География работы</h1></section>
   <section class="container grid col-4">
     ${cities.map(city => `<a href="/geo/${citySlug(city)}/avtovesy/" class="city-link">${city}</a>`).join('')}
@@ -324,6 +435,10 @@ addPage({
   title: 'Контакты завода весов | Петропавловск',
   h1: 'Контакты',
   description: 'Свяжитесь с нами: Петропавловск, ул. Карима Сутюшева, 65.',
+  breadcrumbs: [
+    { name: 'Главная', url: '/' },
+    { name: 'Контакты', url: '/kontakty/' }
+  ],
   body: `<section class="container contact-section-page">
     <div class="contact-text">
       <h1>Контакты</h1>
@@ -344,18 +459,64 @@ addPage({
 
 // Rich Data Pages
 for (const cat of categories) {
-  addPage({ url: `/katalog/${cat.slug}/`, title: `${cat.name} от производителя | Купить весы`, h1: cat.name, body: richCatalogTemplate(cat) });
+  addPage({
+    url: `/katalog/${cat.slug}/`,
+    title: `${cat.name} от производителя | Купить весы`,
+    h1: cat.name,
+    breadcrumbs: [
+      { name: 'Главная', url: '/' },
+      { name: 'Каталог', url: '/katalog/' },
+      { name: cat.name, url: `/katalog/${cat.slug}/` }
+    ],
+    body: richCatalogTemplate(cat)
+  });
   for (const cap of cat.capacities) {
-    addPage({ url: `/katalog/${cat.slug}/${cap}-${unitSlug(cat.unit)}/`, title: `${cat.name} ${cap} ${cat.unit} | Цена и характеристики`, h1: `${cat.name} ${cap} ${cat.unit}`, body: richModelTemplate(cat, cap) });
+    addPage({
+      url: `/katalog/${cat.slug}/${cap}-${unitSlug(cat.unit)}/`,
+      title: `${cat.name} ${cap} ${cat.unit} | Цена и характеристики`,
+      h1: `${cat.name} ${cap} ${cat.unit}`,
+      image: `/assets/model-${cat.slug}-${cap}.svg`,
+      breadcrumbs: [
+        { name: 'Главная', url: '/' },
+        { name: 'Каталог', url: '/katalog/' },
+        { name: cat.name, url: `/katalog/${cat.slug}/` },
+        { name: `${cat.name} ${cap} ${cat.unit}`, url: `/katalog/${cat.slug}/${cap}-${unitSlug(cat.unit)}/` }
+      ],
+      schema: [productJson(cat, cap)],
+      body: richModelTemplate(cat, cap)
+    });
   }
 }
 for (const city of cities) {
   for (const off of geoOffers) {
-    addPage({ url: `/geo/${citySlug(city)}/${off.slug}/`, title: `${off.title} в г. ${city} — производство и монтаж`, h1: `${off.title} в ${city}`, body: richGeoTemplate(city, off) });
+    addPage({
+      url: `/geo/${citySlug(city)}/${off.slug}/`,
+      title: `${off.title} в г. ${city} — производство и монтаж`,
+      h1: `${off.title} в ${city}`,
+      image: `/assets/geo-${citySlug(city)}-${off.slug}.svg`,
+      breadcrumbs: [
+        { name: 'Главная', url: '/' },
+        { name: 'Регионы', url: '/geo/' },
+        { name: `${off.title} в ${city}`, url: `/geo/${citySlug(city)}/${off.slug}/` }
+      ],
+      body: richGeoTemplate(city, off)
+    });
   }
 }
 for (const [slug, name] of services) {
-  addPage({ url: `/uslugi/${slug}/`, title: `${name} — профессиональные услуги завода`, h1: name, body: richServiceTemplate(slug, name) });
+  addPage({
+    url: `/uslugi/${slug}/`,
+    title: `${name} — профессиональные услуги завода`,
+    h1: name,
+    image: `/assets/service-${slug}.svg`,
+    breadcrumbs: [
+      { name: 'Главная', url: '/' },
+      { name: 'Услуги', url: '/uslugi/' },
+      { name: name, url: `/uslugi/${slug}/` }
+    ],
+    schema: [serviceJson(slug, name)],
+    body: richServiceTemplate(slug, name)
+  });
 }
 
 // Build Logic
@@ -527,4 +688,54 @@ for(const [slug, name] of services) {
   await writeFile(path.join(outDir, 'assets', `service-${slug}.svg`), projectSvg(name));
 }
 
-console.log('Built 140 pages with spacing fixes and styled geo links.');
+// Generate robots.txt
+const robotsTxt = `User-agent: *
+Disallow: /admin/
+Disallow: /admin
+Disallow: /api/
+Sitemap: ${site.domain}/sitemap.xml
+`;
+await writeFile(path.join(outDir, 'robots.txt'), robotsTxt);
+
+// Generate sitemap.xml
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
+    <loc>${site.domain}${page.url}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>${page.url === '/' ? 'daily' : 'weekly'}</changefreq>
+    <priority>${page.url === '/' ? '1.0' : page.url.split('/').length <= 3 ? '0.8' : '0.5'}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+await writeFile(path.join(outDir, 'sitemap.xml'), sitemapXml);
+
+// Generate llms.txt
+const llmsTxt = `# ${site.name}
+
+> ${site.description}
+
+## Основные контакты
+- **Телефон**: ${site.phone}
+- **Email**: ${site.email}
+- **Адрес**: ${site.address}
+
+## Карта страниц сайта
+${pages.map(page => `- [${page.title}](${site.domain}${page.url})`).join('\n')}
+`;
+await writeFile(path.join(outDir, 'llms.txt'), llmsTxt);
+
+// Generate humans.txt
+const humansTxt = `/* TEAM */
+Chef: Завод Весовой Техники
+Contact: ${site.email}
+From: Петропавловск, Казахстан
+
+/* SITE */
+Last update: ${new Date().toLocaleDateString('ru-RU')}
+Standards: HTML5, CSS3
+Components: Node.js http, Vanilla JS
+Software: Custom Static Site Generator
+`;
+await writeFile(path.join(outDir, 'humans.txt'), humansTxt);
+
+console.log(`Built ${pages.length} pages, sitemap.xml, robots.txt, llms.txt, and humans.txt successfully.`);
