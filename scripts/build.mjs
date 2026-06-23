@@ -332,6 +332,21 @@ const richGeoTemplate = (city, offer) => `<section class="container content-sect
     </div>
   </div>
 </section>
+<section class="container" style="padding-top: 0;">
+  <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 24px;">Другие направления в г. ${city}</h2>
+  <div class="grid col-5">
+    ${geoOffers.map(off => {
+      const isActive = off.slug === offer.slug;
+      const borderStyle = isActive ? 'border: 2px solid var(--b); background: var(--w);' : '';
+      return `<a href="/geo/${citySlug(city)}/${off.slug}/" class="card" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 120px; ${borderStyle}">
+        <h4 style="margin: 0 0 8px; font-size: 15px; font-weight: 800;">${off.title}</h4>
+        <span style="font-size: 12px; font-weight: 700; opacity: ${isActive ? '0.4' : '1'};">
+          ${isActive ? 'Текущая страница' : 'Подробнее &rarr;'}
+        </span>
+      </a>`;
+    }).join('')}
+  </div>
+</section>
 ${ctaSection}`;
 
 const richServiceTemplate = (slug, name) => `<section class="container content-section">
@@ -363,17 +378,17 @@ addPage({
   schema: [organizationJson(), websiteJson(), faqJson()],
   body: `<section class="hero-section">
     <div class="container">
-      <p class="eyebrow">Завод Весового Оборудования в Петропавловске</p>
+      <p class="eyebrow">Завод Весового Оборудования в Казахстане</p>
       <h1>Промышленные весы для логистики и строительства</h1>
-      <p>Собственное производство весов полного цикла в Петропавловске. Доставка, профессиональный монтаж и калибровка весовых комплексов по всему Казахстану.</p>
+      <p>Собственное производство весов полного цикла в Казахстане. Доставка, профессиональный монтаж и калибровка весовых комплексов по всей стране.</p>
       <div class="hero-actions"><a href="/katalog/" class="button">В каталог</a><a href="/kontakty/" class="button outline">Получить консультацию</a></div>
     </div>
   </section>
   <section class="container features-row" style="padding-top: 0; margin-bottom: 40px;">
     <div class="grid col-3">
       <div class="card">
-        <h3>Локальный завод</h3>
-        <p>Производство в Петропавловске. Конструкции адаптированы под резкие температурные перепады и климат Казахстана.</p>
+        <h3>Собственный завод</h3>
+        <p>Производство в Казахстане. Конструкции адаптированы под резкие температурные перепады и климат регионов.</p>
       </div>
       <div class="card">
         <h3>Реестр ГСИ РК</h3>
@@ -459,9 +474,17 @@ addPage({
     { name: 'Главная', url: '/' },
     { name: 'География', url: '/geo/' }
   ],
-  body: `<section class="container page-header"><h1>География работы</h1></section>
-  <section class="container grid col-4">
-    ${cities.map(city => `<a href="/geo/${citySlug(city)}/avtovesy/" class="city-link">${city}</a>`).join('')}
+  body: `<section class="container page-header"><h1>География работы по регионам</h1></section>
+  <section class="container grid col-3">
+    ${cities.map(city => `<div class="card city-geo-card">
+      <h3 style="margin-top: 0; font-size: 20px; font-weight: 800; border-bottom: 2px solid var(--b); padding-bottom: 12px; margin-bottom: 16px;">${city}</h3>
+      <nav style="display: flex; flex-direction: column; gap: 10px;">
+        ${geoOffers.map(off => `<a href="/geo/${citySlug(city)}/${off.slug}/" style="font-size: 14px; font-weight: 600; color: var(--g5); display: flex; justify-content: space-between; align-items: center; transition: color 0.2s;">
+          <span>${off.title}</span>
+          <span style="color: var(--g4); font-size: 12px;">&rarr;</span>
+        </a>`).join('')}
+      </nav>
+    </div>`).join('')}
   </section>`
 });
 
