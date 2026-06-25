@@ -702,7 +702,7 @@ section { padding: 80px 0; }
 .city-link:hover { background: var(--navy); color: var(--w); border-color: var(--navy); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
 /* Footer */
-.footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 0; color: var(--w); margin-top: 0; }
+.footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 80px 0 0; color: var(--w); margin-top: 40px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1.5fr 1fr; gap: 60px; align-items: start; }
 .footer .brand { color: var(--w); }
 .footer-info p { margin: 20px 0; color: rgba(255,255,255,0.55); font-size: 15px; max-width: 340px; line-height: 1.7; }
