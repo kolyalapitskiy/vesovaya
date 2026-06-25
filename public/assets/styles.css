@@ -243,7 +243,7 @@ section { padding: 80px 0; }
 .trust-strip {
   background: var(--g1);
   border-bottom: 1px solid var(--g3);
-  padding: 0 !important;
+  padding: 28px 0 !important;
 }
 .trust-strip .container {
   display: flex;
@@ -507,7 +507,7 @@ section { padding: 80px 0; }
 ═══════════════════════════════════════ */
 .factory-section {
   background: var(--navy);
-  padding: 0 !important;
+  padding: 80px 0 !important;
   position: relative;
   overflow: hidden;
   min-height: 480px;
@@ -526,7 +526,7 @@ section { padding: 80px 0; }
 }
 .factory-content {
   position: relative; z-index: 2;
-  padding: 80px 0;
+  padding: 0;
 }
 .factory-content h2 {
   font-size: clamp(28px, 3vw, 44px);
@@ -673,6 +673,26 @@ section { padding: 80px 0; }
 /* ═══════════════════════════════════════
    GEO / CITY LINKS
 ═══════════════════════════════════════ */
+.geo-grid-section {
+  background: var(--g1);
+  padding: 60px 0;
+}
+.geo-grid-section .city-link {
+  background: var(--w);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.geo-grid-section .city-link:hover {
+  background: var(--navy);
+  color: var(--w);
+  border-color: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
 .city-link {
   display: block; padding: 20px 24px;
   background: var(--g1); border: 1px solid var(--g3);
