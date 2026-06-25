@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Контакты завода весов | Петропавловск</title>
-  <meta name="description" content="Свяжитесь с нами: Петропавловск, ул. Карима Сутюшева, 65.">
+  <meta name="description" content="Свяжитесь с нами: Петропавловск, ул. Карима Сутюшева, 65. Звоните: +7 (700) 000-00-00. Производство и поставка промышленных весов по Казахстану.">
   <link rel="canonical" href="https://vesovaya.example/kontakty/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/styles.css">
   
   <!-- Open Graph -->
@@ -13,16 +15,58 @@
   <meta property="og:description" content="Свяжитесь с нами: Петропавловск, ул. Карима Сутюшева, 65.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://vesovaya.example/kontakty/">
-  <meta property="og:image" content="https://vesovaya.example/assets/hero.svg">
+  <meta property="og:image" content="https://vesovaya.example/assets/hero-truck.jpg">
   <meta property="og:site_name" content="Весовая Техника">
 
   <script src="/assets/lead-form.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://vesovaya.example/"},{"@type":"ListItem","position":2,"name":"Контакты","item":"https://vesovaya.example/kontakty/"}]}</script>
+
+  <style>
+    .contact-page-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-info-block { display: flex; flex-direction: column; gap: 24px; }
+    .contact-info-card {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--g1); border: 1px solid var(--g3);
+      border-radius: var(--radius); padding: 24px 28px;
+      transition: all 0.2s;
+    }
+    .contact-info-card:hover { border-color: var(--orange); box-shadow: var(--shadow); }
+    .contact-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--orange), #fb923c);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(249,115,22,0.3);
+    }
+    .contact-icon svg { width: 22px; height: 22px; color: #fff; }
+    .contact-info-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--g5); margin: 0 0 4px; font-weight: 700; }
+    .contact-info-card p, .contact-info-card a { font-size: 17px; font-weight: 700; color: var(--navy); margin: 0; line-height: 1.4; }
+    .contact-info-card a:hover { color: var(--orange); }
+    .contact-form-card {
+      background: var(--w); border: 1px solid var(--g3);
+      border-radius: var(--radius); padding: 44px;
+      box-shadow: var(--shadow-lg);
+    }
+    .contact-form-card h2 { font-size: 26px; font-weight: 900; color: var(--navy); margin: 0 0 8px; }
+    .contact-form-card .sub { color: var(--g5); font-size: 15px; margin-bottom: 28px; }
+    @media(max-width:768px) {
+      .contact-page-grid { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 28px 20px; }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="4" fill="#000"/><path d="M10 20h20M15 25h10M20 15v10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M12 15l4-3 12 0 4 3" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><span>Весовая Техника</span></a>
+      <a class="brand" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#f97316"/><path d="M8 22h24M12 26h16M20 14v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M10 17l4-4 12 0 4 4" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Весовая Техника</span>
+      </a>
       <button class="menu-toggle" aria-label="Открыть меню" onclick="document.body.classList.toggle('menu-open')"><span></span></button>
       <nav class="main-nav">
         <a href="/katalog/">Каталог</a>
@@ -33,45 +77,116 @@
       </nav>
     </div>
   </header>
+
   <main>
     <div class="container">
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a href="/">Главная</a> <span class="sep">/</span> <span>Контакты</span>
       </nav>
     </div>
-    <section class="container contact-section-page">
-    <div class="contact-text">
-      <h1>Контакты</h1>
-      <div class="contact-item"><h4>Адрес офиса</h4><p>Петропавловск, ул. Карима Сутюшева, 65</p></div>
-      <div class="contact-item"><h4>Телефон</h4><p><a href="tel:+77000000000">+7 (700) 000-00-00</a></p></div>
-      <div class="contact-item"><h4>Email</h4><p><a href="mailto:sales@vesovaya.example">sales@vesovaya.example</a></p></div>
-      <div class="contact-item"><h4>Режим работы</h4><p>Пн-Пт: 09:00 - 18:00</p></div>
-    </div>
-    <div class="contact-form-side card">
-      <h3>Заказать расчет</h3>
-      <form class="lead-form" data-lead-form>
-  <input type="hidden" name="page_url" value="">
-  <div class="form-grid">
-    <label>Имя <input name="name" required placeholder="Иван"></label>
-    <label>Телефон <input name="phone" required type="tel" placeholder="+7 (___) ___ __ __"></label>
-    <label>Город <input name="city" placeholder="Петропавловск"></label>
-    <label>Тип весов <select name="product"><option value="Автовесы">Автомобильные весы</option><option value="Вагонные весы">Вагонные весы</option><option value="Сервис">Сервис и поверка</option></select></label>
-  </div>
-  <label>Комментарий <textarea name="message" rows="3" placeholder="НПВ, длина платформы, объект..."></textarea></label>
-  <button class="button" type="submit">Получить расчет</button>
-  <p class="form-status" data-form-status></p>
-</form>
-    </div>
-  </section>
-  <section class="container map-section">
-    <div class="map-box card"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2345.987654321!2d69.131!3d54.871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43f9a3f7890abcde%3A0x1234567890abcdef!2z0YPQuy4g0JrQsNGA0LjQvNCwINCh0YPRgtGO0YjQtdCy0LAsIDY1LCDQn9C10YLRgNC-0L_QsNCy0LvQvtCy0YHQuiwg0JrQsNC30LDRhdGB0YLQsNC9!5e0!3m2!1sru!2skz!4v1710000000000!5m2!1sru!2skz" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
-  </section>
+
+    <!-- Page header -->
+    <section style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 60px 0 72px; position: relative; overflow: hidden;">
+      <div style="position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(249,115,22,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <span class="eyebrow">Мы на связи</span>
+        <h1 style="font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: #fff; margin: 12px 0 16px; letter-spacing: -0.5px;">Контакты</h1>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.65); max-width: 560px;">Звоните, пишите или приезжайте на завод. Ответим на все вопросы о производстве, монтаже и сервисе весов.</p>
+      </div>
+    </section>
+
+    <!-- Contact Grid -->
+    <section class="container" style="padding: 72px 24px;">
+      <div class="contact-page-grid">
+
+        <div class="contact-info-block">
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg fill="none" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke="currentColor" stroke-width="2"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div>
+              <h4>Адрес завода</h4>
+              <p>Петропавловск, ул. Карима Сутюшева, 65</p>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg fill="none" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h4>Телефон</h4>
+              <a href="tel:+77000000000">+7 (700) 000-00-00</a>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg fill="none" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:sales@vesovaya.example">sales@vesovaya.example</a>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon">
+              <svg fill="none" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h4>Режим работы</h4>
+              <p>Пн-Пт: 09:00 — 18:00</p>
+            </div>
+          </div>
+
+          <!-- Quick facts -->
+          <div style="background: var(--navy); border-radius: var(--radius); padding: 28px; color: #fff;">
+            <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin: 0 0 16px; font-weight: 700;">Быстрый ответ</h4>
+            <p style="font-size: 16px; color: rgba(255,255,255,0.85); margin: 0 0 20px; line-height: 1.6;">Оставьте заявку прямо сейчас — наш менеджер перезвонит в течение <strong style="color: var(--orange);">2 часов</strong> в рабочее время.</p>
+            <a href="tel:+77000000000" class="button" style="width: 100%; justify-content: center;">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Позвонить сейчас
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h2>Заказать расчёт</h2>
+          <p class="sub">Опишите задачу — подберём оборудование и рассчитаем стоимость</p>
+          <form class="lead-form" data-lead-form>
+            <input type="hidden" name="page_url" value="">
+            <div class="form-grid">
+              <label>Имя <input name="name" required placeholder="Иван"></label>
+              <label>Телефон <input name="phone" required type="tel" placeholder="+7 (___) ___ __ __"></label>
+              <label>Город <input name="city" placeholder="Петропавловск"></label>
+              <label>Тип весов <select name="product"><option value="Автовесы">Автомобильные весы</option><option value="Вагонные весы">Вагонные весы</option><option value="Платформенные">Платформенные весы</option><option value="Бункерные">Бункерные весы</option><option value="Сервис">Сервис и поверка</option></select></label>
+            </div>
+            <label>Комментарий <textarea name="message" rows="4" placeholder="НПВ, длина платформы, объект, сроки..."></textarea></label>
+            <button class="button" type="submit">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Отправить заявку
+            </button>
+            <p class="form-status" data-form-status></p>
+            <p class="form-privacy">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="container map-section" style="padding: 0 24px 80px;">
+      <div style="border-radius: var(--radius); overflow: hidden; border: 1px solid var(--g3); box-shadow: var(--shadow); line-height: 0;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2345.987654321!2d69.131!3d54.871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43f9a3f7890abcde%3A0x1234567890abcdef!2z0YPQuy4g0JrQsNGA0LjQvNCwINCh0YPRgtGO0YjQtdCy0LAsIDY1LCDQn9C10YLRgNC-0L_QsNCy0LvQvtCy0YHQuiwg0JrQsNC30LDRhdGB0YLQsNC9!5e0!3m2!1sru!2skz!4v1710000000000!5m2!1sru!2skz" width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
   </main>
+
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-info">
-        <a class="brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="4" fill="#000"/><path d="M10 20h20M15 25h10M20 15v10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M12 15l4-3 12 0 4 3" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><span>Весовая Техника</span></a>
-        <p>Завод-производитель весоизмерительного оборудования. Собственное производство в Казахстане. Поставка, монтаж и сервисное обслуживание всех типов промышленных весов.</p>
+        <a class="brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#f97316"/><path d="M8 22h24M12 26h16M20 14v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M10 17l4-4 12 0 4 4" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>Весовая Техника</span>
+        </a>
+        <p>Завод-производитель весоизмерительного оборудования. Собственное производство в Казахстане.</p>
         <div class="footer-contacts">
           <p><strong>Адрес:</strong> Петропавловск, ул. Карима Сутюшева, 65</p>
           <p><strong>Телефон:</strong> <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>

@@ -4,8 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Каталог весов | Производство промышленных весов</title>
-  <meta name="description" content="Все типы промышленных весов от производителя: автомобильные, вагонные, платформенные.">
+  <meta name="description" content="Все типы промышленных весов от производителя: автомобильные, вагонные, платформенные, бункерные, крановые и лабораторные весы.">
   <link rel="canonical" href="https://vesovaya.example/katalog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/styles.css">
   
   <!-- Open Graph -->
@@ -13,7 +15,7 @@
   <meta property="og:description" content="Все типы промышленных весов от производителя: автомобильные, вагонные, платформенные.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://vesovaya.example/katalog/">
-  <meta property="og:image" content="https://vesovaya.example/assets/hero.svg">
+  <meta property="og:image" content="https://vesovaya.example/assets/hero-truck.jpg">
   <meta property="og:site_name" content="Весовая Техника">
 
   <script src="/assets/lead-form.js" defer></script>
@@ -22,7 +24,10 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="4" fill="#000"/><path d="M10 20h20M15 25h10M20 15v10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M12 15l4-3 12 0 4 3" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><span>Весовая Техника</span></a>
+      <a class="brand" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#f97316"/><path d="M8 22h24M12 26h16M20 14v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M10 17l4-4 12 0 4 4" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Весовая Техника</span>
+      </a>
       <button class="menu-toggle" aria-label="Открыть меню" onclick="document.body.classList.toggle('menu-open')"><span></span></button>
       <nav class="main-nav">
         <a href="/katalog/">Каталог</a>
@@ -33,22 +38,135 @@
       </nav>
     </div>
   </header>
+
   <main>
     <div class="container">
       <nav class="breadcrumbs" aria-label="Хлебные крошки">
         <a href="/">Главная</a> <span class="sep">/</span> <span>Каталог</span>
       </nav>
     </div>
-    <section class="container page-header"><h1>Каталог весов</h1></section>
-  <section class="container grid col-3">
-    <a href="/katalog/avtomobilnye-vesy/" class="card"><h3>Автомобильные весы</h3><p>Производство и сервис.</p></a><a href="/katalog/vagonnye-vesy/" class="card"><h3>Вагонные весы</h3><p>Производство и сервис.</p></a><a href="/katalog/platformennye-vesy/" class="card"><h3>Платформенные весы</h3><p>Производство и сервис.</p></a><a href="/katalog/bunkernye-vesy/" class="card"><h3>Бункерные весы</h3><p>Производство и сервис.</p></a><a href="/katalog/konveyernye-vesy/" class="card"><h3>Конвейерные весы</h3><p>Производство и сервис.</p></a><a href="/katalog/kranovye-vesy/" class="card"><h3>Крановые весы</h3><p>Производство и сервис.</p></a><a href="/katalog/palletnye-vesy/" class="card"><h3>Паллетные весы</h3><p>Производство и сервис.</p></a><a href="/katalog/laboratornye-vesy/" class="card"><h3>Лабораторные весы</h3><p>Производство и сервис.</p></a>
-  </section>
+
+    <!-- Catalog Hero -->
+    <section style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 64px 0 72px; position: relative; overflow: hidden;">
+      <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(249,115,22,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <span class="eyebrow">Наше оборудование</span>
+        <h1 style="font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: #fff; margin: 12px 0 16px; letter-spacing: -0.5px;">Каталог весов</h1>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.65); max-width: 580px;">От автомобильных весов до лабораторных — всё оборудование производим сами. Гарантия, монтаж и сервис по всему Казахстану.</p>
+      </div>
+    </section>
+
+    <!-- Catalog Grid -->
+    <section class="container" style="padding: 72px 24px;">
+      <div class="grid col-3">
+        <a href="/katalog/avtomobilnye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">🚛</div>
+          <div class="cat-card-body">
+            <h3>Автомобильные весы</h3>
+            <p>Грузоподъёмность до 120 тонн. Полнопоточное взвешивание автотранспорта с АСУ и интеграцией с 1С.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/vagonnye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">🚂</div>
+          <div class="cat-card-body">
+            <h3>Вагонные весы</h3>
+            <p>До 500 тонн. Статическое и динамическое взвешивание железнодорожных вагонов.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/platformennye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">⚖️</div>
+          <div class="cat-card-body">
+            <h3>Платформенные весы</h3>
+            <p>До 5000 кг. Для цехов, складов и производственных предприятий.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/bunkernye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">🏗️</div>
+          <div class="cat-card-body">
+            <h3>Бункерные весы</h3>
+            <p>До 20 000 кг. Для сыпучих материалов, зерна и руды в бункерах и ёмкостях.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/konveyernye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">📦</div>
+          <div class="cat-card-body">
+            <h3>Конвейерные весы</h3>
+            <p>До 1200 т/ч. Непрерывное динамическое взвешивание материала на ленте.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/kranovye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">🏋️</div>
+          <div class="cat-card-body">
+            <h3>Крановые весы</h3>
+            <p>До 30 тонн. Взвешивание подвешенных грузов на кране.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/palletnye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">🔲</div>
+          <div class="cat-card-body">
+            <h3>Паллетные весы</h3>
+            <p>До 3000 кг. Оптимальны для взвешивания паллет на складах и в торговле.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+        <a href="/katalog/laboratornye-vesy/" class="cat-card">
+          <div class="cat-card-img" style="font-size: 72px;">🔬</div>
+          <div class="cat-card-body">
+            <h3>Лабораторные весы</h3>
+            <p>До 20 000 г. Высокоточные весы для лабораторий и аналитики.</p>
+            <span class="cat-card-link">Смотреть модели</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="cta-section" style="margin: 0;">
+      <div class="container">
+        <div class="cta-card-outer">
+          <div class="cta-text">
+            <span class="eyebrow" style="background: rgba(249,115,22,0.2);">Не нашли нужную модель?</span>
+            <h2>Изготовим весы<br>по вашим требованиям</h2>
+            <p>Разрабатываем нестандартные весовые комплексы под уникальные задачи. Опишите требования — подберём решение.</p>
+            <ul class="check-list-w">
+              <li>Нестандартные размеры платформы</li>
+              <li>Специальные условия эксплуатации</li>
+              <li>Интеграция в существующую систему</li>
+            </ul>
+          </div>
+          <div class="cta-form-box">
+            <h3>Заявка на подбор</h3>
+            <p class="form-subtitle">Опишите вашу задачу — ответим за 2 часа</p>
+            <form class="lead-form" data-lead-form>
+              <input type="hidden" name="page_url" value="">
+              <div class="form-grid">
+                <label>Имя <input name="name" required placeholder="Иван"></label>
+                <label>Телефон <input name="phone" required type="tel" placeholder="+7 (___) ___ __ __"></label>
+              </div>
+              <label>Комментарий <textarea name="message" rows="4" placeholder="Тип весов, грузоподъёмность, условия..."></textarea></label>
+              <button class="button" type="submit">Получить консультацию</button>
+              <p class="form-status" data-form-status></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-info">
-        <a class="brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="4" fill="#000"/><path d="M10 20h20M15 25h10M20 15v10" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M12 15l4-3 12 0 4 3" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><span>Весовая Техника</span></a>
-        <p>Завод-производитель весоизмерительного оборудования. Собственное производство в Казахстане. Поставка, монтаж и сервисное обслуживание всех типов промышленных весов.</p>
+        <a class="brand" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#f97316"/><path d="M8 22h24M12 26h16M20 14v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><path d="M10 17l4-4 12 0 4 4" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>Весовая Техника</span>
+        </a>
+        <p>Завод-производитель весоизмерительного оборудования. Собственное производство в Казахстане.</p>
         <div class="footer-contacts">
           <p><strong>Адрес:</strong> Петропавловск, ул. Карима Сутюшева, 65</p>
           <p><strong>Телефон:</strong> <a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
